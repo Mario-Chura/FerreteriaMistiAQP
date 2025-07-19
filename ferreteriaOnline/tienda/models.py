@@ -1,7 +1,3 @@
-from distutils.command.upload import upload
-from email.policy import default
-from mailbox import NoSuchMailboxError
-from tabnanny import verbose
 from django.db import models
 
 # Create your models here.

@@ -12,7 +12,13 @@ def contacto(request):
             email=request.POST.get("email")
             contenido=request.POST.get("contenido")
 
-            email=EmailMessage("Mensaje desde la pagina de ferreteria Misti", "El usuario con nombre {} con la direccion {} escribe lo siguiente: \n\n {}".format(nombre,email,contenido),"",["mchurapuma@gmail.com"],reply_to=[email])
+            email=EmailMessage(
+                "Mensaje desde la pagina de ferreteria Misti", 
+                "El usuario con nombre {} con la direccion {} escribe lo siguiente: \n\n {}".format(nombre,email,contenido),
+                "ferreteriaaqpmisti@gmail.com",  # Cambiado al nuevo email
+                ["ferreteriaaqpmisti@gmail.com"],  # Cambiado al nuevo email
+                reply_to=[email]
+            )
 
             try: 
                 email.send()

@@ -1,0 +1,288 @@
+{% extends "ferreteriaOnlineApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- Start Slider -->
+<div id="slides-shop" class="cover-slides">
+    <ul class="slides-container">
+        <li class="text-center">
+            <img src="{% static 'ferreteriaOnlineApp/images/banner-04.jpg' %}" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="m-b-20"><strong>Bienvenidos a <br> ferretería Misti </strong></h1>
+                        <p class="m-b-40">Vive esta manera fácil de comprar online  <br> podrá ahorrar tiempo y dinero haciendo uso de nuestra tienda online.</p>
+                        <p><a class="btn hvr-hover" href="#">Comenzar a comprar </a></p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="text-center">
+            <img src="{% static 'ferreteriaOnlineApp/images/banner-05.jpg' %}" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="m-b-20"><strong>Bienvenidos a <br> ferretería Misti</strong></h1>
+                        <p class="m-b-40">Las mejores marcas en una sola tienda </p>
+                        <p><a class="btn hvr-hover" href="#">Comenzar a comprar</a></p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="text-center">
+            <img src="{% static 'ferreteriaOnlineApp/images/banner-06.jpg' %}" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="m-b-20"><strong>Bienvenidos a <br> ferretería Misti</strong></h1>
+                        <p class="m-b-40">¡Los mejores acabados para tu proyecto! </p>
+                        <p><a class="btn hvr-hover" href="#">Comenzar a comprar</a></p>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="slides-navigation">
+        <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+    </div>
+</div>
+<!-- End Slider -->
+
+<!-- Start Categories  -->
+<div class="categories-shop">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="shop-cat-box">
+                    <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/categories_img_01.png' %}" alt="" />
+                    <a class="btn hvr-hover" href="#">Construcción</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="shop-cat-box">
+                    <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/categories_img_02.png' %}" alt="" />
+                    <a class="btn hvr-hover" href="#">Domésticos</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="shop-cat-box">
+                    <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/categories_img_03.png' %}" alt="" />
+                    <a class="btn hvr-hover" href="#">Eléctricos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Categories -->
+
+<div class="box-add-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="offer-box-products">
+                    <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/add-img-01.jpg' %}" alt="" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="offer-box-products">
+                    <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/add-img-02.jpg' %}" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start Products  -->
+<div class="products-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-all text-center">
+                    <h1>Herramientas</h1>
+                    <p>Las herramientas no ayudan en  los trabajos de reparación, construcción y mejoramiento.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="special-menu text-center">
+                    <div class="button-group filter-button-group">
+                        <button class="active" data-filter="*">Todo</button>
+                        <button data-filter=".top-featured">Destacados</button>
+                        <button data-filter=".best-seller">Mas vendidos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row special-list">
+            <div class="col-lg-3 col-md-6 special-grid best-seller">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="sale">Rebaja</p>
+                        </div>
+                        <img src="{% static 'ferreteriaOnlineApp/images/img-pro-01.jpg' %}" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                            <a class="cart" href="#">Añadir al carrito</a>
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>ALICATE AJUSTABLE 10″</h4>
+                        <h5> S/7.79</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="new">Nuevo</p>
+                        </div>
+                        <img src="{% static 'ferreteriaOnlineApp/images/img-pro-02.jpg' %}" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                            <a class="cart" href="#">Añadir al carrito</a>
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>Alicate Ajustable CR-V de 10 </h4>
+                        <h5> S/35.66</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="sale">Rebaja</p>
+                        </div>
+                        <img src="{% static 'ferreteriaOnlineApp/images/img-pro-03.jpg' %}" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                            <a class="cart" href="#">Añadir al carrito</a>
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>ALICATE CORTE 6″ PRO 84-054 STANL 12/</h4>
+                        <h5> S/48.96</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 special-grid best-seller">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="sale">Rebaja</p>
+                        </div>
+                        <img src="{% static 'ferreteriaOnlineApp/images/img-pro-04.jpg' %}" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                            <a class="cart" href="#">Añadir al carrito</a>
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>ALICATE DE PRESIÓN 10″</h4>
+                        <h5> S/23.63</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Products  -->
+
+<!-- Start Blog  -->
+<div class="latest-blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-all text-center">
+                    <h1>Pinturas</h1>
+                    <p>Ferreteria Misti te brinda pinturas y las herramientas para pintar las diversas superficies del hogar.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-xl-4">
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/blog-img.jpg' %}" alt="" />
+                    </div>
+                    <div class="blog-content">
+                        <div class="title-blog">
+                            <h3>ABRO LIMPIA CONTACTO ELECTR EC-533 5.75 ONZ</h3>
+                            <p>Este producto se puede aplicar en interruptores, circuitos impresos, conectores eléctricos y electrónicos, discos duros y piezas internas del ordenador, mecanismos de relojería, instrumentos de precisión, y contactos eléctricos del motor. </p>
+                        </div>
+                        <ul class="option-blog">
+                            <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                            <li><a href="#"><i class="far fa-comments"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-4">
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/blog-img-01.jpg' %}" alt="" />
+                    </div>
+                    <div class="blog-content">
+                        <div class="title-blog">
+                            <h3>ABRO PINT SPRAY BLANCO BRILLO #16C CHINA</h3>
+                            <p>Aerosol sintético de alta calidad, gran rendimiento y durabilidad. De secado rápido, ideal para interiores y exteriores. Secado rápido. Esmalte sintético para dar durabilidad y rendimiento. Alta calidad, rápido secado. Aplicación en spray</p>
+                        </div>
+                        <ul class="option-blog">
+                            <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                            <li><a href="#"><i class="far fa-comments"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-4">
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img class="img-fluid" src="{% static 'ferreteriaOnlineApp/images/blog-img-02.jpg' %}" alt="" />
+                    </div>
+                    <div class="blog-content">
+                        <div class="title-blog">
+                            <h3>ASMASCO PINT SPRAY ORO PERLADO #17 RAL1036 (27)</h3>
+                            <p>Colores brillantes combinados con escamas de metal para una luminosa apariencia metálica. Para uso interior sobre superficies como madera o metal. Nota: Las escamas de metal pueden borrarse con la manipulación del producto. Acabado brillante.</p>
+                        </div>
+                        <ul class="option-blog">
+                            <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                            <li><a href="#"><i class="far fa-comments"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog  -->
+
+  {% endblock %}

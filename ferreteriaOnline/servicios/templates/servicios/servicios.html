@@ -1,0 +1,33 @@
+{% extends "ferreteriaOnlineApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% for servicio  in servicios %}
+    <center>
+      <section class="">
+        <div class="container">
+          <div class="">
+             <img class="" src="{{servicio.image.url}}" alt="" style="width: 50%"> 
+             <div class="">
+              <h2 class="" >
+                <br>
+                <span class="" style="color: rgb(57, 174, 241); font-weight: bold; font-size: 30px">{{servicio.titulo}}</span><br>
+                <span class="">{{servicio.contenido}}</span>
+                <br>
+              </h2>
+            </div>
+          </div>
+        </div>
+    </section>
+    </center>
+
+<div><p>
+
+
+
+</p></div>
+
+    {% endfor %}
+{% endblock %}

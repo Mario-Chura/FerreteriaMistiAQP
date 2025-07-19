@@ -1,0 +1,47 @@
+{% extends "ferreteriaOnlineApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% for post  in posts %}
+
+    <section class="">
+      <center>
+        <div class="container">
+          <div class="">
+            <img class="" src="{{post.image.url}}" alt="" style="width: 50%">
+            <div class="">
+              <h2 class="" >
+                <span class="" style="color: rgb(57, 174, 241); font-weight: bold; font-size: 30px">{{post.titulo}}</span><br>
+                <span class="">{{post.contenido}}</span><br>
+              </h2>
+            <div style="text-align: left; font-size: 1em;">
+                Autor: {{post.autor}}
+            </div>
+            </div>
+          </div>
+        </div>
+      </center>
+        
+      </section>
+
+
+    {% endfor %}
+
+    <section>
+        <div style="width: 75% ; margin: auto; text-align: center; color: black;">
+        
+        Categorias: 
+        {% for post  in posts %}
+            {% for categoria in post.categorias.all %}
+          <a href="{% url 'categoria' categoria.id %}" class="linksCategorias" ; >{{categoria.nombre}}</a> &nbsp;&nbsp;&nbsp;
+            {% endfor %}
+
+        {% endfor %}
+        
+        </div>
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+.linksCategorias{
+    color: black!important;
+    text-decoration: underline;
+  }
+  .linksCategorias:hover{
+    text-decoration: none;
+  }
+  .contenedorFormulario{
+    background-color: rgb(66, 150, 33);
+    width: 50%;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 1px 0px;
+  
+  }

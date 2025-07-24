@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',  # AGREGAR ESTA LÍNEA
     'pedidos',
     "corsheaders",
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

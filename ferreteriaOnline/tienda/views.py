@@ -10,7 +10,8 @@ from rest_framework.response import Response
 
 def tienda(request):
     productos=Producto.objects.all()
-    return render(request, "tienda/tienda.html", {"productos": productos})
+    categorias=CategoriaProd.objects.all()
+    return render(request, "tienda/tienda.html", {"productos": productos, "categorias": categorias})
 
 class ProductoView(APIView):
     

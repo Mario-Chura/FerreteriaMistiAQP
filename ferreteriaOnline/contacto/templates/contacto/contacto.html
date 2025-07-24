@@ -4,23 +4,541 @@
 
 {% block content %}
 
-    <div class="contenedorFormulario">
-
-        {% if "valido" in request.GET %}
-    
-            <p style="color: black">Informacion enviada correctamente, gracias</p>
-    
-        {% endif %}
-    
-            <form action="" method="POST" style="text-align: center">
-                {% csrf_token %}
-                <table style="color: black; margin: auto 20px">{{miFormulario.as_table}}</table>
-                <input type="submit" value="Enviar" style="width: 150px;">
-                </form>  
-    
-    
-    
+<!-- Hero Section -->
+<div class="contact-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="hero-title">📞 Contáctanos</h1>
+                <p class="hero-subtitle">Estamos aquí para ayudarte con tus proyectos</p>
+            </div>
+        </div>
     </div>
+</div>
 
+<div class="container contact-section">
+    <div class="row">
+        <!-- Información de Contacto -->
+        <div class="col-lg-6 mb-5">
+            <div class="contact-info-card">
+                <h3 class="section-title">
+                    <i class="fas fa-info-circle"></i> Información de Contacto
+                </h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h5>Dirección</h5>
+                        <p>Calle Sucre 815 La Tomilla<br>Cayma, Arequipa - Perú</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h5>Teléfono</h5>
+                        <p>+51 917 997 415</p>
+                        <small>Lun-Vie: 8:00am - 5:00pm | Sáb: 10:00am - 8:00pm</small>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h5>Email</h5>
+                        <p>ferreteriaaqpmisti@gmail.com</p>
+                        <small>Responderemos en menos de 24 horas</small>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h5>WhatsApp</h5>
+                        <p>+51 917 997 415</p>
+                        <small>Atención inmediata</small>
+                    </div>
+                </div>
+
+                <!-- Redes Sociales -->
+                <div class="social-section">
+                    <h5>Síguenos en:</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario de Contacto -->
+        <div class="col-lg-6">
+            <div class="contact-form-card">
+                <h3 class="section-title">
+                    <i class="fas fa-paper-plane"></i> Envíanos un Mensaje
+                </h3>
+
+                <!-- Mensaje de éxito -->
+                {% if "valido" in request.GET %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>¡Mensaje enviado exitosamente!</strong> 
+                        Gracias por contactarnos. Te responderemos pronto.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+
+                <!-- Mensaje de error -->
+                {% if "novalido" in request.GET %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Error al enviar el mensaje.</strong> 
+                        Por favor, inténtalo nuevamente o contáctanos directamente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+
+                <form action="" method="POST" class="contact-form">
+                    {% csrf_token %}
+                    
+                    <div class="form-group mb-4">
+                        <label for="{{ miFormulario.nombre.id_for_label }}" class="form-label">
+                            <i class="fas fa-user"></i> Nombre Completo
+                        </label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="{{ miFormulario.nombre.id_for_label }}"
+                               name="nombre" 
+                               placeholder="Ingresa tu nombre completo"
+                               value="{{ miFormulario.nombre.value|default:'' }}"
+                               required>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="{{ miFormulario.email.id_for_label }}" class="form-label">
+                            <i class="fas fa-envelope"></i> Correo Electrónico
+                        </label>
+                        <input type="email" 
+                               class="form-control" 
+                               id="{{ miFormulario.email.id_for_label }}"
+                               name="email" 
+                               placeholder="tu@email.com"
+                               value="{{ miFormulario.email.value|default:'' }}"
+                               required>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="{{ miFormulario.contenido.id_for_label }}" class="form-label">
+                            <i class="fas fa-comment"></i> Mensaje
+                        </label>
+                        <textarea class="form-control" 
+                                  id="{{ miFormulario.contenido.id_for_label }}"
+                                  name="contenido" 
+                                  rows="6" 
+                                  placeholder="Cuéntanos en qué podemos ayudarte..."
+                                  required>{{ miFormulario.contenido.value|default:'' }}</textarea>
+                        <div class="form-text">
+                            Describe tu consulta, proyecto o qué productos necesitas.
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="politicas" required>
+                            <label class="form-check-label" for="politicas">
+                                Acepto la <a href="#" class="text-success">política de privacidad</a> 
+                                y el tratamiento de mis datos personales.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success btn-lg send-button">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Información adicional -->
+                <div class="additional-info">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempo de respuesta: Menos de 24 horas</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Tus datos están protegidos y son confidenciales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de Beneficios -->
+<div class="benefits-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 mb-4">
+                <h3>¿Por qué elegir Ferretería Misti?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h5>80+ Años de Experiencia</h5>
+                    <p>Más de 8 décadas sirviendo a nuestros clientes</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h5>Mejores Marcas</h5>
+                    <p>Solo trabajamos con marcas reconocidas y de calidad</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h5>Entrega Rápida</h5>
+                    <p>Servicio de delivery en toda la ciudad</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h5>Atención Personalizada</h5>
+                    <p>Asesoramiento experto para tus proyectos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 80px 0 60px;
+    margin-bottom: 50px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 0 0 80px;
+}
+
+.contact-info-card, .contact-form-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.section-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #28a745;
+    padding-bottom: 15px;
+}
+
+.section-title i {
+    color: #28a745;
+    margin-right: 10px;
+}
+
+/* Contact Items */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2);
+}
+
+.contact-icon {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.contact-details h5 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact-details p {
+    color: #495057;
+    margin-bottom: 5px;
+}
+
+.contact-details small {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Social Links */
+.social-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #e9ecef;
+}
+
+.social-section h5 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    color: white;
+}
+
+.social-link.facebook { background-color: #3b5998; }
+.social-link.instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+.social-link.whatsapp { background-color: #25d366; }
+.social-link.linkedin { background-color: #0077b5; }
+
+/* Form Styles */
+.contact-form {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.form-label i {
+    color: #28a745;
+    margin-right: 8px;
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.send-button {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+    border-radius: 25px;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+/* Additional Info */
+.additional-info {
+    border-top: 2px solid #e9ecef;
+    padding-top: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.info-item i {
+    color: #28a745;
+    margin-right: 10px;
+    width: 20px;
+}
+
+/* Benefits Section */
+.benefits-section {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+}
+
+.benefits-section h3 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 15px;
+    height: 100%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.benefit-icon {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+}
+
+.benefit-card h5 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+    border: none;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+}
+
+.alert i {
+    margin-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .contact-info-card, .contact-form-card {
+        padding: 30px 20px;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .benefits-section h3 {
+        font-size: 2rem;
+    }
+}
+</style>
 
 {% endblock %}

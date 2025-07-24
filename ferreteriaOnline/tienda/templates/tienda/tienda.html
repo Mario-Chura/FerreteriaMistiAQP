@@ -27,7 +27,7 @@
     <!-- Productos por categoría -->
     {% for categoria in categorias %}
         <section id="categoria-{{ categoria.id }}" class="mb-5">
-            <h2 class="border-bottom pb-2">{{ categoria.nombre }}</h2>
+            <h2>{{ categoria.nombre }}</h2>
             <div class="row">
                 {% for producto in categoria.producto_set.all %}
                     <div class="col-md-3 mb-4">
